@@ -27,7 +27,7 @@ def exec_follow(client):
         print(e)
     for user_info in user_info_list:
         client.follow_user(target_user_id=user_info["id"])
-        time.sleep(10)
+        time.sleep(60)
 
 
 def exec_remove(client):
