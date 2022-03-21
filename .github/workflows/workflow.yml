@@ -1,8 +1,8 @@
  name: exec
  on:
-   workflow_dispatch:
-#   schedule:
-#     - cron: '0 * * * *'
+  #  workflow_dispatch:
+  schedule:
+    - cron: '0 0-11 * * *'
  env:
    BEARER_TOKEN: ${{secrets.BEARER_TOKEN}}
    TWITTER_API_KEY: ${{secrets.TWITTER_API_KEY}}
