@@ -1,8 +1,5 @@
 import tweepy
 import os
-import time
-import urllib
-import json
 from dotenv import load_dotenv
 
 load_dotenv()

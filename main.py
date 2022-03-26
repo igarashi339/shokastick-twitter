@@ -18,6 +18,25 @@ def get_client():
     return tweepy.Client(bearer_token, api_key, api_secret, access_token, access_token_secret)
 
 
+def exec_like(client, user_id):
+    """
+    最新5件のツイートのうち、いいね数が5以上のものがあればすべていいねする。
+    :param client:
+    :param user_id:
+    :return:
+    """
+    tweet_list = client.get_users_tweets(id=user_id, max_results=5, exclude="retweets,replies", tweet_fields="public_metrics")
+    for tweet in tweet_list.data:
+        time.sleep(10)
+        id = tweet["id"]
+        like_count = tweet["public_metrics"]["like_count"]
+        if like_count >= 5:
+            try:
+                client.like(tweet_id=id)
+            except Exception as e:
+                print(e)
+
+
 def exec_follow(client):
     data_num = 3
     try:
@@ -27,6 +46,7 @@ def exec_follow(client):
         print(e)
     for user_info in user_info_list:
         client.follow_user(target_user_id=user_info["id"])
+        exec_like(client, user_info["id"])
         print(user_info["id"])
         time.sleep(60)
 
