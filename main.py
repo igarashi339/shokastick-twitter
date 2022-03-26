@@ -27,6 +27,8 @@ def exec_like(client, user_id):
     最新5件のツイートのうち、いいね数が5以上のものがあればすべていいねする。
     """
     tweet_list = client.get_users_tweets(id=user_id, max_results=5, exclude="retweets,replies", tweet_fields="public_metrics")
+    if not tweet_list:
+        return
     for tweet in tweet_list.data:
         time.sleep(SLEEP_SECOND)
         id = tweet["id"]
