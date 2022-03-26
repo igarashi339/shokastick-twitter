@@ -74,7 +74,7 @@ def exec_remove(client):
 
 
 def main(client):
-    # exec_follow(client)
+    exec_follow(client)
     exec_remove(client)
 
 
