@@ -14,8 +14,8 @@ bearer_token = os.getenv("BEARER_TOKEN")
 gas_url = os.getenv("GAS_URL")
 
 SLEEP_SECOND = 10  # 秒
-FOLLOW_USER_COUNT = 4  # 人
-REMOVE_USER_COUNT = 2  # 人
+FOLLOW_USER_COUNT = 8  # 人
+REMOVE_USER_COUNT = 6  # 人
 
 
 def get_client():
