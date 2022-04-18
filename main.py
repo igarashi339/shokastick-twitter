@@ -29,6 +29,8 @@ def exec_like(client, user_id):
     tweet_list = client.get_users_tweets(id=user_id, max_results=5, exclude="retweets,replies", tweet_fields="public_metrics")
     if not tweet_list:
         return
+    if not tweet_list.data:
+        return
     for tweet in tweet_list.data:
         time.sleep(SLEEP_SECOND)
         id = tweet["id"]
